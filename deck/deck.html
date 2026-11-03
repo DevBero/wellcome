@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Startseite neu gedacht – ElternLeben → wellcome</title>
+<link rel="stylesheet" href="../wireframes/wf.css">
+<style>
+  body { background: #ccd3dd; }
+  .slide { margin: 0 auto 24px; }
+  @media print { body { background: none; } .slide { margin: 0; break-after: page; } }
+  .slide h1 { font-size: 50px; }
+  .slide .lead { font-size: 26px; color: var(--muted); font-weight: 700; margin-top: 10px; position: relative; max-width: 1400px; }
+  .pageno { position: absolute; left: 72px; bottom: 34px; font-size: 16px; font-weight: 800; color: var(--softblue); }
+  .footnote { position: absolute; right: 72px; bottom: 34px; font-size: 15px; font-weight: 700; color: var(--muted); }
+  .full-img { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+  /* generic cards */
+  .grid { display: grid; gap: 22px; position: relative; }
+  .tile { background: var(--white); border: 1.5px solid var(--line); border-radius: 22px; padding: 22px 24px; }
+  .tile h4 { font-size: 24px; font-weight: 900; color: var(--navy); line-height: 1.2; }
+  .tile p { font-size: 19px; font-weight: 600; color: var(--muted); line-height: 1.4; margin-top: 6px; }
+  .tile .ic { width: 46px; height: 46px; border-radius: 14px; background: var(--lightblue); color: var(--cobalt); font-size: 24px; font-weight: 900; display: grid; place-items: center; margin-bottom: 12px; }
+  .n { display: inline-grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--navy); color: #fff; font-weight: 900; font-size: 19px; flex: none; }
+  .tag { display: inline-block; font-size: 15px; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; padding: 5px 12px; border-radius: 999px; }
+  .tag.red { background: #FBE3E2; color: var(--red); }
+  .tag.blue { background: var(--lightblue); color: var(--navy); }
+
+  /* slide 1 */
+  .s1 { display: grid; grid-template-columns: 1fr 470px; gap: 60px; align-items: center; height: 100%; position: relative; }
+  .s1 .logo { width: 430px; margin-bottom: 56px; }
+  .s1 h1 { font-size: 84px; line-height: 1.04; margin: 0; }
+  .s1 .claim { font-size: 38px; font-weight: 800; color: var(--cobalt); margin-top: 26px; }
+  .s1 .who { margin-top: 70px; font-size: 24px; font-weight: 800; color: var(--navy); display: flex; gap: 18px; align-items: center; }
+  .s1 .who span { color: var(--muted); font-weight: 700; }
+  .s1 .phoneimg { width: 430px; filter: drop-shadow(0 30px 50px rgba(1,45,103,.25)); transform: rotate(3deg); }
+
+  /* slide 2 */
+  .s2 { display: grid; grid-template-columns: 400px 150px 1fr; gap: 40px; margin-top: 36px; position: relative; }
+  .phone.real { width: 390px; height: 760px; }
+  .phone.real .screen { background: #fff; }
+  .phone.real img { width: 100%; display: block; }
+  .ruler { display: flex; flex-direction: column; gap: 4px; align-items: center; }
+  .ruler i { display: block; width: 46px; height: 44px; border-radius: 6px; background: #CFE5C3; }
+  .ruler i:first-child { background: #53A33A; }
+  .ruler b { font-size: 46px; font-weight: 900; color: var(--navy); line-height: 1; margin-top: 10px; }
+  .ruler small { font-size: 16px; font-weight: 800; color: var(--muted); text-align: center; line-height: 1.25; }
+  .strong { background: var(--white); border: 2px solid var(--lightblue); border-radius: 20px; padding: 16px 22px; }
+  .strong .tag { margin-bottom: 8px; }
+  .strong p { font-size: 21px; font-weight: 700; color: var(--navy); line-height: 1.4; }
+  .issues { display: grid; gap: 14px; margin-top: 18px; }
+  .issue { display: flex; gap: 16px; align-items: flex-start; background: var(--white); border-radius: 18px; padding: 15px 20px; border: 1.5px solid var(--line); }
+  .issue .n { background: var(--red); }
+  .issue h4 { font-size: 23px; font-weight: 900; color: var(--navy); }
+  .issue p { font-size: 18px; font-weight: 600; color: var(--muted); line-height: 1.4; margin-top: 3px; }
+  .issue p b { color: var(--ink); }
+
+  /* slide 3 */
+  .s3 { display: grid; grid-template-columns: 640px 1fr; gap: 50px; margin-top: 40px; position: relative; }
+  .persona { background: var(--navy); color: #fff; border-radius: 28px; padding: 54px 50px; min-height: 760px; position: relative; overflow: hidden; }
+  .persona .time { font-size: 96px; font-weight: 900; color: var(--marigold); line-height: 1; }
+  .persona p { font-size: 32px; font-weight: 700; line-height: 1.4; margin-top: 18px; }
+  .persona .goal { margin-top: 44px; padding-top: 36px; border-top: 2px solid rgba(255,255,255,.2); font-size: 34px; font-weight: 900; line-height: 1.3; }
+  .persona .goal em { font-style: normal; color: var(--lightblue); }
+  .persona img { position: absolute; right: -30px; bottom: -30px; width: 230px; opacity: .14; filter: brightness(0) invert(1); }
+  .s3 .grid { grid-template-columns: 1fr 1fr; gap: 22px; }
+  .s3 .tile { padding: 26px 26px; }
+  .s3 .tile h4 { font-size: 26px; } .s3 .tile p { font-size: 20px; }
+  .swatches { display: flex; gap: 12px; margin-top: 34px; align-items: center; }
+  .sw { width: 76px; height: 76px; border-radius: 14px; display: grid; place-items: center; font-size: 15px; font-weight: 900; border: 1.5px solid var(--line); }
+  .swatches small { font-size: 18px; font-weight: 700; color: var(--muted); margin-left: 10px; line-height: 1.35; }
+
+  /* slide 5 */
+  .s5 { display: grid; grid-template-columns: 1fr 760px; gap: 40px; margin-top: 30px; position: relative; }
+  .befund { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
+  .befund span { background: #FBE3E2; color: #9E1F1E; font-size: 17px; font-weight: 800; padding: 7px 14px; border-radius: 10px; }
+  .befund span.ok { background: #E3F2DC; color: #2D6A1F; }
+  .mtable { width: 100%; border-collapse: separate; border-spacing: 0 8px; }
+  .mtable td { background: var(--white); padding: 12px 16px; font-size: 18px; font-weight: 600; color: var(--ink); line-height: 1.35; vertical-align: top; }
+  .mtable td:first-child { border-radius: 14px 0 0 14px; font-weight: 900; color: var(--navy); width: 200px; }
+  .mtable td:last-child { border-radius: 0 14px 14px 0; }
+  .code { background: #0F1E3A; border-radius: 22px; padding: 22px 26px; font-family: 'JetBrains Mono', monospace; font-size: 15.5px; line-height: 1.5; color: #D6E2F5; white-space: pre; overflow: hidden; }
+  .code .k { color: #8FC1FF; } .code .s { color: #FFD48A; } .code .c { color: #7F93B5; font-style: italic; } .code .h { background: rgba(255,195,85,.16); border-radius: 4px; }
+  .codecap { font-size: 17px; font-weight: 800; color: var(--navy); margin-bottom: 10px; display: flex; justify-content: space-between; }
+  .codecap span { color: var(--muted); font-weight: 700; }
+
+  /* slide 6 */
+  .s6 { display: grid; grid-template-columns: 430px 1fr; gap: 56px; margin-top: 26px; position: relative; }
+  .s6 .phoneimg { width: 410px; filter: drop-shadow(0 24px 40px rgba(1,45,103,.2)); }
+  .bridge-row { display: flex; align-items: center; gap: 16px; margin-bottom: 26px; }
+  .brandstep { flex: 1; border-radius: 18px; padding: 16px 18px; text-align: center; }
+  .brandstep b { display: block; font-size: 23px; font-weight: 900; }
+  .brandstep small { font-size: 15.5px; font-weight: 800; opacity: .85; }
+  .arrow { font-size: 32px; font-weight: 900; color: var(--cobalt); }
+  .trustlist { display: grid; gap: 14px; }
+  .trustlist .item { display: flex; gap: 16px; align-items: flex-start; background: var(--white); border-radius: 18px; padding: 14px 20px; border: 1.5px solid var(--line); }
+  .trustlist h4 { font-size: 22px; font-weight: 900; color: var(--navy); }
+  .trustlist p { font-size: 18px; font-weight: 600; color: var(--muted); line-height: 1.38; margin-top: 2px; }
+
+  /* slide 8 */
+  .s8 { display: grid; grid-template-columns: 1080px 1fr; gap: 50px; margin-top: 30px; position: relative; }
+  .arch { position: relative; height: 760px; }
+  .box { position: absolute; border-radius: 20px; padding: 16px 20px; background: var(--white); border: 2px solid var(--line); }
+  .box .t { font-size: 14px; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+  .box b { display: block; font-size: 25px; font-weight: 900; color: var(--navy); margin-top: 2px; }
+  .box p { font-size: 16.5px; font-weight: 600; color: var(--muted); line-height: 1.35; margin-top: 4px; }
+  .box.cms { border-color: var(--softblue); background: #F3F7FC; }
+  .box.front { border-color: var(--cobalt); border-width: 3px; }
+  .box.app { border-color: var(--tangerine); border-width: 3px; }
+  .box.ds { background: var(--peach); border-color: var(--peach); }
+  .box.side { background: transparent; border-style: dashed; }
+  .box.user { background: var(--navy); border-color: var(--navy); }
+  .box.user b, .box.user .t, .box.user p { color: #fff; }
+  .conn { position: absolute; font-size: 15px; font-weight: 800; color: var(--cobalt); }
+  .reasons { display: grid; gap: 14px; }
+  .reasons .item { display: flex; gap: 14px; align-items: flex-start; }
+  .reasons h4 { font-size: 22px; font-weight: 900; color: var(--navy); }
+  .reasons p { font-size: 17.5px; font-weight: 600; color: var(--muted); line-height: 1.38; margin-top: 2px; }
+  .honest { margin-top: 10px; background: var(--peach); border-radius: 18px; padding: 16px 20px; font-size: 18.5px; font-weight: 700; color: var(--navy); line-height: 1.4; }
+
+  /* slide 9 */
+  .phases { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 50px; position: relative; }
+  .phase { position: relative; padding: 0 22px 0 0; }
+  .phase .bar { height: 14px; background: var(--lightblue); margin-bottom: 22px; position: relative; }
+  .phase:first-child .bar { border-radius: 7px 0 0 7px; } .phase:last-child .bar { border-radius: 0 7px 7px 0; }
+  .phase .dot { position: absolute; left: 0; top: -13px; width: 40px; height: 40px; border-radius: 50%; background: var(--cobalt); color: #fff; font-weight: 900; font-size: 19px; display: grid; place-items: center; box-shadow: 0 0 0 5px var(--ivory); }
+  .phase .when { font-size: 16px; font-weight: 900; color: var(--cobalt); letter-spacing: .06em; text-transform: uppercase; }
+  .phase h4 { font-size: 30px; font-weight: 900; color: var(--navy); margin: 4px 0 8px; }
+  .phase p { font-size: 18.5px; font-weight: 600; color: var(--muted); line-height: 1.42; }
+  .kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 50px; position: relative; }
+  .kpi { background: var(--white); border-radius: 20px; padding: 18px 22px; border: 1.5px solid var(--line); display: flex; gap: 16px; align-items: center; }
+  .kpi b { font-size: 34px; font-weight: 900; color: var(--cobalt); flex: none; min-width: 92px; }
+  .kpi span { font-size: 18.5px; font-weight: 700; color: var(--navy); line-height: 1.35; }
+
+  /* slide 10 */
+  .s10 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 30px; margin-top: 44px; position: relative; }
+  .q { display: flex; gap: 18px; align-items: flex-start; background: var(--white); border-radius: 20px; padding: 22px 24px; border: 1.5px solid var(--line); }
+  .q p { font-size: 25px; font-weight: 800; color: var(--navy); line-height: 1.35; }
+  .q .n { background: var(--cobalt); }
+  .thanks { position: absolute; left: 72px; right: 72px; bottom: 70px; display: flex; justify-content: space-between; align-items: center; }
+  .thanks b { font-size: 40px; font-weight: 900; color: var(--navy); }
+  .thanks span { font-size: 22px; font-weight: 700; color: var(--muted); }
+  .thanks img { height: 84px; }
+</style>
+</head>
+<body>
+
+<!-- ================= 1 Einstieg ================= -->
+<section class="slide" id="s1">
+  <div class="s1">
+    <div>
+      <img class="logo" src="../assets/wellcome-logo.png" alt="wellcome – Echte Hilfe für Eltern">
+      <div class="kicker">Case Study · Relaunch Startseite</div>
+      <h1>Startseite neu gedacht – von ElternLeben zu wellcome</h1>
+      <div class="claim">In 5 Sekunden Vertrauen, in 2 Klicks Hilfe.</div>
+      <div class="who">Berat Uzun <span>· Freelance Developer · 4. November 2026</span></div>
+    </div>
+    <img class="phoneimg" src="../wireframes/png/slide4-einstiege-screen-a.png" alt="">
+  </div>
+</section>
+
+<!-- ================= 2 Ist-Analyse ================= -->
+<section class="slide" id="s2">
+  <div class="kicker">Ist-Analyse · elternleben.de am 3.11.2026</div>
+  <h1>Starke Inhalte – aber der Weg dorthin ist lang</h1>
+  <img class="logo-corner" src="../assets/wellcome-logo.png" alt="">
+  <div class="s2">
+    <div class="device">
+      <div class="phone real"><div class="screen"><img src="img/heute-mobil.png" alt="Startseite heute, mobil"></div></div>
+      <div class="caption">Heute, mobil: Slider, Menü, Shop zuerst</div>
+    </div>
+    <div class="ruler">
+      <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      <b>≈ 14</b><small>Bildschirm&shy;höhen bis zum Ende</small>
+    </div>
+    <div>
+      <div class="strong"><span class="tag blue">Stark</span>
+        <p>Kostenlose Beratung durch benannte Expert*innen · Hebamme per Telefon &amp; WhatsApp · E-Mail-Antwort in max. 36 Std. · echte Erfahrungsberichte</p></div>
+      <div class="issues">
+        <div class="issue"><div class="n">1</div><div><h4>Viel Gutes, aber alles auf einmal</h4>
+          <p>Rund 12 Abschnitte, Beratung taucht 3× auf. Die H1 ist eine Kurs-Promo: <b>„Dein Eltern-Stress-Test &amp; 6-Wochen-Training“</b>.</p></div></div>
+        <div class="issue"><div class="n">2</div><div><h4>Einstieg über das Menü, nicht über die Situation</h4>
+          <p>Navigation nach Alter und Thema, aber kein „Ich brauche jetzt Hilfe“. Die mobile Leiste beginnt mit <b>Shop</b>.</p></div></div>
+        <div class="issue"><div class="n">3</div><div><h4>Für Maschinen kaum lesbar</h4>
+          <p><b>Kein JSON-LD</b>, kein og:image, Expert*innen-Fotos ohne Alt-Text. Die FAQ-Seite ist <b>ohne JavaScript leer</b>.</p></div></div>
+        <div class="issue"><div class="n">4</div><div><h4>Marke im Übergang</h4>
+          <p>Logo schon „wellcome für dein ElternLeben“, Website noch Grün, neue Palette Blau. Der richtige Moment, den Wechsel zu gestalten.</p></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="pageno">2</div>
+</section>
+
+<!-- ================= 3 Zielbild ================= -->
+<section class="slide" id="s3">
+  <div class="kicker">Zielbild &amp; Prinzipien</div>
+  <h1>Alles wird an einem Moment gemessen</h1>
+  <img class="logo-corner" src="../assets/wellcome-logo.png" alt="">
+  <div class="s3">
+    <div class="persona">
+      <div class="time">03:07</div>
+      <p>Eine Mutter, Baby im Arm, Daumen am Handy. Sie hat 30 Sekunden.</p>
+      <div class="goal">In <em>5 Sekunden</em> versteht sie: „Hier bekomme ich kostenlose Hilfe, der ich vertrauen kann.“<br>In <em>2 Klicks</em> ist sie bei der richtigen Hilfe.</div>
+      <img src="../assets/wellcome-angel.png" alt="">
+    </div>
+    <div>
+      <div class="grid">
+        <div class="tile"><h4>Mobile first</h4><p>Einhändig bedienbar, große Touch-Flächen</p></div>
+        <div class="tile"><h4>Situation vor Struktur</h4><p>Einstieg über das Anliegen, nicht über das Menü</p></div>
+        <div class="tile"><h4>Weniger ist mehr</h4><p>Ein Abschnitt, eine Aufgabe</p></div>
+        <div class="tile"><h4>Ruhig und warm</h4><p>Ivory &amp; Peach als Flächen, Navy &amp; Cobalt für Vertrauen, Rot nur fürs Wichtigste</p></div>
+        <div class="tile"><h4>Barrierearm</h4><p>WCAG 2.2 AA</p></div>
+        <div class="tile"><h4>Schnell</h4><p>Core Web Vitals im grünen Bereich, auch im Mobilfunknetz</p></div>
+      </div>
+      <div class="swatches">
+        <div class="sw" style="background:var(--ivory)"></div>
+        <div class="sw" style="background:var(--peach);border-color:var(--peach)"></div>
+        <div class="sw" style="background:var(--lightblue);border-color:var(--lightblue)"></div>
+        <div class="sw" style="background:var(--cobalt);color:#fff;border:none">7,5</div>
+        <div class="sw" style="background:var(--navy);color:#fff;border:none">13,4</div>
+        <div class="sw" style="background:var(--red);color:#fff;border:none">5,0</div>
+        <div class="sw" style="background:var(--tangerine);color:var(--navy);border:none">5,7</div>
+        <small>Kontrast in den Feldern: alle ≥ 4,5 : 1 (AA).<br>Tangerine &amp; Soft Blue nur mit Navy-Schrift.</small>
+      </div>
+    </div>
+  </div>
+  <div class="pageno">3</div>
+</section>
+
+<!-- ================= 4 Einstiege ================= -->
+<section class="slide" id="s4"><img class="full-img" src="../wireframes/png/slide4-einstiege.png" alt="Wireframe neue Einstiege"></section>
+
+<!-- ================= 5 SEO & GEO ================= -->
+<section class="slide" id="s5">
+  <div class="kicker">SEO &amp; GEO</div>
+  <h1>Für Google und KI-Tools lesbar machen</h1>
+  <img class="logo-corner" src="../assets/wellcome-logo.png" alt="">
+  <div class="s5">
+    <div>
+      <div class="befund">
+        <span>0 × JSON-LD</span><span>GPTBot &amp; ClaudeBot: 403</span><span>FAQ ohne JS leer</span><span>kein og:image</span><span>llms.txt: 404</span><span class="ok">saubere URLs &amp; Canonicals</span>
+      </div>
+      <table class="mtable">
+        <tr><td>Strukturierte Daten</td><td>JSON-LD: Organization/NGO mit alternateName „ElternLeben“, WebSite mit Suche, Person je Expert*in, FAQPage</td></tr>
+        <tr><td>Inhalt</td><td>Eine klare H1, Überschriften als echte Elternfragen, Antwort im ersten Satz, Alt-Texte, og:image</td></tr>
+        <tr><td>Vertrauen (E-E-A-T)</td><td>„Fachlich geprüft von … am …“, Qualifikation, Quellen</td></tr>
+        <tr><td>KI-Crawler</td><td>Policy bewusst festlegen und in robots.txt dokumentieren – heute blockt der Server, robots.txt erlaubt alles. llms.txt als Übersicht</td></tr>
+        <tr><td>Technik</td><td>Server-gerendertes HTML, ohne JavaScript lesbar, schnelle Ladezeiten, saubere Sitemap</td></tr>
+        <tr><td>Markenwechsel</td><td>Domain &amp; URLs bleiben, 301 nur wo nötig, gleiche Organisationsdaten überall</td></tr>
+      </table>
+    </div>
+    <div>
+      <div class="codecap">JSON-LD für die Startseite (Auszug) <span>schema.org</span></div>
+<div class="code"><span class="c">&lt;script type="application/ld+json"&gt;</span>
+{ <span class="k">"@context"</span>: <span class="s">"https://schema.org"</span>,
+  <span class="k">"@graph"</span>: [
+  { <span class="k">"@type"</span>: <span class="s">"NGO"</span>,
+    <span class="k">"@id"</span>: <span class="s">"https://www.elternleben.de/#org"</span>,
+    <span class="k">"name"</span>: <span class="s">"wellcome"</span>,
+    <span class="h"><span class="k">"alternateName"</span>: [<span class="s">"ElternLeben"</span>, <span class="s">"ElternLeben.de"</span>],</span>
+    <span class="k">"slogan"</span>: <span class="s">"Echte Hilfe für Eltern"</span>,
+    <span class="k">"foundingDate"</span>: <span class="s">"2002"</span>,
+    <span class="k">"sameAs"</span>: [<span class="s">"https://www.instagram.com/wellcome_elternleben/"</span>] },
+  { <span class="k">"@type"</span>: <span class="s">"Person"</span>,
+    <span class="k">"name"</span>: <span class="s">"Karin …"</span>, <span class="k">"jobTitle"</span>: <span class="s">"Hebamme"</span>,
+    <span class="h"><span class="k">"worksFor"</span>: { <span class="k">"@id"</span>: <span class="s">"https://www.elternleben.de/#org"</span> } },</span>
+  { <span class="k">"@type"</span>: <span class="s">"FAQPage"</span>,
+    <span class="k">"mainEntity"</span>: [{
+      <span class="k">"@type"</span>: <span class="s">"Question"</span>,
+      <span class="k">"name"</span>: <span class="s">"Kostet die Beratung etwas?"</span>,
+      <span class="k">"acceptedAnswer"</span>: { <span class="k">"@type"</span>: <span class="s">"Answer"</span>,
+        <span class="k">"text"</span>: <span class="s">"Nein. Kostenlos und ohne Registrierung –</span>
+<span class="s">                 Antwort in max. 36 Stunden."</span> } }] }
+]}</div>
+    </div>
+  </div>
+  <div class="pageno">5</div>
+  <div class="footnote">Befund: HTML-Analyse &amp; Crawler-Test am 3.11.2026</div>
+</section>
+
+<!-- ================= 6 Marke & Trust ================= -->
+<section class="slide" id="s6">
+  <div class="kicker">Marke &amp; Vertrauen</div>
+  <h1>Vertrauen auf den ersten Blick – der Markenwechsel als Brücke</h1>
+  <img class="logo-corner" src="../assets/wellcome-logo.png" alt="">
+  <div class="s6">
+    <img class="phoneimg" src="../wireframes/png/slide4-einstiege-screen-c.png" alt="">
+    <div>
+      <div class="bridge-row">
+        <div class="brandstep" style="background:#E3F2DC;color:#2D6A1F"><b>ElternLeben</b><small>bekannt &amp; gerankt</small></div>
+        <span class="arrow">→</span>
+        <div class="brandstep" style="background:var(--lightblue);color:var(--navy)"><b>„… ist jetzt wellcome“</b><small>Übergang · heute schon im Logo</small></div>
+        <span class="arrow">→</span>
+        <div class="brandstep" style="background:var(--cobalt);color:#fff"><b>wellcome</b><small>eine Marke, Web &amp; App</small></div>
+      </div>
+      <div class="trustlist">
+        <div class="item"><div class="n">1</div><div><h4>Wer steht dahinter?</h4><p>Hinweis im Header für eine Übergangszeit, wellcome gGmbH, gemeinnützig, Förderer, Datenschutz in einfachen Worten.</p></div></div>
+        <div class="item"><div class="n">2</div><div><h4>Starke Zahlen direkt unter dem Einstieg</h4><p>seit 2002 · rund 220 Standorte DE/AT/CH · kostenlos · Antwort in max. 36 Std. <i>(Zahlen gemeinsam aktualisieren)</i></p></div></div>
+        <div class="item"><div class="n">3</div><div><h4>Gesichter statt Stockfotos</h4><p>Echte Expert*innen mit Name, Foto und Qualifikation – auch an jedem Artikel.</p></div></div>
+        <div class="item"><div class="n">4</div><div><h4>Echte Stimmen mit Kontext</h4><p>„Mutter von Zwillingen, 4 Monate“ statt anonymer Zitate.</p></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="pageno">6</div>
+</section>
+
+<!-- ================= 7 App ================= -->
+<section class="slide" id="s7"><img class="full-img" src="../wireframes/png/slide7-app-bruecke.png" alt="Wireframe App-Brücke"></section>
+
+<!-- ================= 8 Tech-Stack ================= -->
+<section class="slide" id="s8">
+  <div class="kicker">Tech-Stack</div>
+  <h1>Neues Frontend, bewährtes CMS – kein Big Bang</h1>
+  <img class="logo-corner" src="../assets/wellcome-logo.png" alt="">
+  <div class="s8">
+    <div class="arch">
+      <div class="box user" style="left:300px;top:0;width:480px;text-align:center"><div class="t">Eltern</div><b>Web · App · Google · KI-Tools</b></div>
+
+      <div class="box front" style="left:0;top:150px;width:500px"><div class="t">Web-Frontend</div><b>Next.js · React · TypeScript</b><p>Server-gerendertes HTML, JSON-LD, schnelle Ladezeiten</p></div>
+      <div class="box app" style="left:580px;top:150px;width:500px"><div class="t">App</div><b>React Native · Expo</b><p>iOS &amp; Android, Push für tägliche Impulse, Deep Links</p></div>
+
+      <div class="box ds" style="left:0;top:330px;width:1080px;text-align:center"><div class="t">Gemeinsam</div><b>Design-System: Tailwind + Design-Tokens aus der wellcome-Palette</b><p>Eine Quelle für Farben, Schrift und Abstände – in Web und App gleich</p></div>
+
+      <div class="box cms" style="left:0;top:500px;width:500px"><div class="t">Inhalte · bleibt</div><b>TYPO3 + EXT:headless</b><p>Redaktion arbeitet wie gewohnt. Liefert JSON. Mixed Mode: alte und neue Seiten parallel</p></div>
+      <div class="box side" style="left:580px;top:500px;width:500px"><div class="t">Dienste</div><b>Meilisearch · Matomo</b><p>Open-Source-Suche (später semantisch), datensparsame Analyse</p></div>
+
+      <div class="box side" style="left:0;top:672px;width:1080px;display:flex;gap:30px;align-items:center;padding:14px 20px"><div class="t" style="flex:none">Betrieb</div><p style="margin:0;font-size:18px;color:var(--navy);font-weight:700">EU-Hosting (Docker) · Lighthouse CI · axe · Playwright – Qualität bei jedem Release automatisch geprüft</p></div>
+
+      <div class="conn" style="left:236px;top:104px">▲ ▼</div>
+      <div class="conn" style="left:816px;top:104px">▲ ▼</div>
+      <div class="conn" style="left:236px;top:462px">▲ JSON</div>
+    </div>
+    <div class="reasons">
+      <div class="item"><div class="n">1</div><div><h4>Kein Big Bang</h4><p>Tausende Artikel und Rankings bleiben. Start mit der Startseite, dann Schritt für Schritt.</p></div></div>
+      <div class="item"><div class="n">2</div><div><h4>Ein Stack für Web &amp; App</h4><p>Ein Design-System, ein Team, weniger Kosten – für eine gGmbH ein echtes Argument.</p></div></div>
+      <div class="item"><div class="n">3</div><div><h4>SEO &amp; GEO unter Kontrolle</h4><p>Volle Kontrolle über HTML, strukturierte Daten und Ladezeit.</p></div></div>
+      <div class="item"><div class="n">4</div><div><h4>Offen für morgen</h4><p>Wechselt das CMS in zwei Jahren, bleibt das Frontend.</p></div></div>
+      <div class="honest">Ehrlich: Ich habe noch nicht mit TYPO3 gearbeitet. Genau deshalb dieser Weg – TYPO3 macht die Redaktion, ich baue dort, wo ich stark bin.</div>
+    </div>
+  </div>
+  <div class="pageno">8</div>
+</section>
+
+<!-- ================= 9 Roadmap ================= -->
+<section class="slide" id="s9">
+  <div class="kicker">Roadmap &amp; Erfolgsmessung</div>
+  <h1>Erst zuhören, dann bauen – mit klaren Zahlen</h1>
+  <img class="logo-corner" src="../assets/wellcome-logo.png" alt="">
+  <div class="phases">
+    <div class="phase"><div class="bar"><div class="dot">1</div></div><div class="when">ca. 2 Wochen</div><h4>Verstehen</h4><p>Analytics, Suchanfragen und Beratungsthemen auswerten, 5 kurze Interviews mit Eltern, Tech-Audit</p></div>
+    <div class="phase"><div class="bar" style="background:var(--softblue)"><div class="dot">2</div></div><div class="when">ca. 6–8 Wochen</div><h4>Neue Startseite</h4><p>Next.js + TYPO3 headless, Design-Tokens, strukturierte Daten, Einstiege, Trust-Leiste</p></div>
+    <div class="phase"><div class="bar"><div class="dot">3</div></div><div class="when">danach</div><h4>Personalisieren</h4><p>Startseite nach Alter, intelligente Suche, Brücke zur App, A/B-Tests der Einstiege</p></div>
+    <div class="phase"><div class="bar" style="background:var(--softblue)"><div class="dot">4</div></div><div class="when">mit App-Launch</div><h4>Umstellen</h4><p>wellcome-Marke auf der ganzen Seite, App-Launch</p></div>
+  </div>
+  <div class="kpis">
+    <div class="kpi"><b>≤ 2</b><span>Klicks bis zur passenden Hilfe</span></div>
+    <div class="kpi"><b>↓</b><span>Absprungrate der Startseite mobil</span></div>
+    <div class="kpi"><b>↑</b><span>Beratungsanfragen &amp; Kontakte zur Hebamme</span></div>
+    <div class="kpi"><b>10</b><span>Elternfragen, monatlich an ChatGPT, Perplexity &amp; Gemini: werdet ihr genannt?</span></div>
+    <div class="kpi"><b>7 T.</b><span>App: Klick → Installation → aktiv nach 7 Tagen</span></div>
+    <div class="kpi"><b>&gt; 90</b><span>Lighthouse, Core Web Vitals im grünen Bereich</span></div>
+  </div>
+  <div class="pageno">9</div>
+</section>
+
+<!-- ================= 10 Fragen ================= -->
+<section class="slide" id="s10">
+  <div class="kicker">Fragen an euch</div>
+  <h1>Mit euren Daten würde einiges anders aussehen</h1>
+  <img class="logo-corner" src="../assets/wellcome-logo.png" alt="">
+  <div class="s10">
+    <div class="q"><div class="n">1</div><p>Welche drei Anliegen kommen in der Beratung am häufigsten?</p></div>
+    <div class="q"><div class="n">2</div><p>Wann ist die Umbenennung zu wellcome geplant – und bleibt die Domain elternleben.de?</p></div>
+    <div class="q"><div class="n">3</div><p>Ersetzt die neue App die bestehende ElternLeben-App?</p></div>
+    <div class="q"><div class="n">4</div><p>Wie zufrieden ist die Redaktion heute mit TYPO3?</p></div>
+    <div class="q"><div class="n">5</div><p>Wie viele Besuche kommen über das Handy, und wo steigen die meisten ein?</p></div>
+    <div class="q"><div class="n">6</div><p>Wo seht ihr meine Rolle: Website, App oder beides?</p></div>
+  </div>
+  <div class="thanks"><div><b>Danke!</b><br><span>Berat Uzun · Freelance Developer</span></div><img src="../assets/wellcome-logo.png" alt=""></div>
+</section>
+
+</body>
+</html>

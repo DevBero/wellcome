@@ -1,0 +1,73 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "NGO",
+      "@id": "https://www.elternleben.de/#organization",
+      "name": "wellcome",
+      "legalName": "wellcome gGmbH",
+      "alternateName": ["ElternLeben", "ElternLeben.de"],
+      "slogan": "Echte Hilfe für Eltern",
+      "url": "https://www.elternleben.de/",
+      "logo": "https://www.elternleben.de/logo-wellcome.png",
+      "foundingDate": "2002",
+      "foundingLocation": { "@type": "Place", "name": "Hamburg" },
+      "areaServed": ["DE", "AT", "CH"],
+      "sameAs": [
+        "https://www.instagram.com/wellcome_elternleben/",
+        "https://www.facebook.com/elternleben/",
+        "https://www.pinterest.de/elternleben/"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Beratung für Eltern",
+        "availableLanguage": ["de", "en"],
+        "url": "https://www.elternleben.de/online-beratung-formate/"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.elternleben.de/#website",
+      "url": "https://www.elternleben.de/",
+      "name": "ElternLeben.de – ein Angebot von wellcome",
+      "inLanguage": "de-DE",
+      "publisher": { "@id": "https://www.elternleben.de/#organization" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.elternleben.de/suche/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.elternleben.de/ueber-uns/experten/#karin",
+      "name": "Karin [Nachname]",
+      "jobTitle": "Hebamme",
+      "knowsAbout": ["Stillen", "Babyschlaf", "Beikost", "Wochenbett"],
+      "image": "https://www.elternleben.de/fileadmin/experten/karin.jpg",
+      "worksFor": { "@id": "https://www.elternleben.de/#organization" }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.elternleben.de/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Kostet die Beratung etwas?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nein. Die Online-Beratung ist kostenlos und ohne Registrierung. Expert*innen antworten auf E-Mail-Fragen innerhalb von maximal 36 Stunden."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wie erreiche ich eine Hebamme?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Über das kostenlose Hebammen-Telefon oder per WhatsApp-Chat, auf Deutsch und Englisch."
+          }
+        }
+      ]
+    }
+  ]
+}
