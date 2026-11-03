@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>wellcome – Mobile Screens</title>
+<link rel="stylesheet" href="../design/tokens.css">
+<style>
+  body { padding: 40px; display: flex; flex-wrap: wrap; gap: 40px; }
+
+  .phone { width: 414px; height: 868px; border-radius: 58px; background: #0D1830; padding: 12px; flex: none; }
+  .screen { width: 390px; height: 844px; border-radius: 46px; overflow: hidden; background: var(--ground); position: relative; display: flex; flex-direction: column; }
+  .status { height: 50px; flex: none; display: flex; justify-content: space-between; align-items: center; padding: 8px 30px 0; font-size: 15px; font-weight: 700; }
+  .status .island { width: 118px; height: 32px; border-radius: 20px; background: #0D1830; }
+  .status .bat { width: 26px; height: 12px; border-radius: 4px; border: 2px solid var(--ink); position: relative; }
+  .status .bat::after { content: ""; position: absolute; left: 2px; top: 2px; bottom: 2px; width: 5px; border-radius: 1px; background: var(--red); }
+  .body { flex: 1; min-height: 0; overflow: hidden; padding: 0 20px; }
+
+  /* site header */
+  .head { display: flex; justify-content: space-between; align-items: center; padding: 6px 0 14px; }
+  .head img { height: 30px; }
+  .burger { width: 44px; height: 44px; border-radius: 50%; background: var(--surface); display: grid; place-items: center; }
+  .burger i { width: 18px; height: 2px; background: var(--ink); border-radius: 2px; box-shadow: 0 -6px 0 var(--ink), 0 6px 0 var(--ink); }
+  .note { font-size: 13.5px; font-weight: 500; color: var(--ink-2); display: flex; gap: 8px; align-items: center; margin-bottom: 18px; }
+  .note b { font-weight: 700; color: var(--ink); }
+  .note .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--cobalt); flex: none; }
+
+  h1 { font-size: 38px; line-height: 1.02; font-weight: 700; letter-spacing: -0.03em; }
+  h2 { font-size: 26px; line-height: 1.08; font-weight: 700; letter-spacing: -0.02em; }
+  .sub { font-size: 16px; line-height: 1.4; color: var(--ink-2); margin-top: 10px; font-weight: 500; }
+  .ask { font-size: 17px; font-weight: 700; margin: 26px 0 12px; }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { height: 44px; padding: 0 18px; border-radius: 999px; background: var(--surface); font-size: 15.5px; font-weight: 600; display: inline-flex; align-items: center; }
+  .chip.on { background: var(--ink); color: #fff; }
+  .chip.small { height: 36px; font-size: 14px; padding: 0 14px; }
+
+  .search { margin-top: 10px; height: 54px; border-radius: 999px; background: var(--surface); display: flex; align-items: center; gap: 12px; padding: 0 8px 0 20px; font-size: 15.5px; color: var(--ink-2); font-weight: 500; }
+  .search .lens { width: 17px; height: 17px; border: 2.5px solid var(--ink); border-radius: 50%; position: relative; flex: none; }
+  .search .lens::after { content: ""; position: absolute; width: 7px; height: 2.5px; background: var(--ink); right: -6px; bottom: -3px; transform: rotate(45deg); border-radius: 2px; }
+  .search .mic { margin-left: auto; width: 40px; height: 40px; border-radius: 50%; background: var(--sunk); }
+
+  /* sticky help bar */
+  .help { position: absolute; left: 0; right: 0; bottom: 0; padding: 14px 16px 30px; background: var(--ground); display: flex; gap: 8px; }
+  .help .btn { flex: 1; min-width: 0; height: 56px; padding: 0 14px; text-align: center; border-radius: 999px; display: flex; flex-direction: column; justify-content: center; align-items: center; font-size: 15px; font-weight: 700; line-height: 1.15; }
+  .help .btn small { font-size: 12px; font-weight: 500; opacity: .8; }
+  .help .primary { background: var(--ink); color: #fff; }
+  .help .secondary { background: var(--surface); color: var(--ink); }
+
+  /* photo cards */
+  .photo { border-radius: var(--r-l); overflow: hidden; position: relative; background: var(--sunk); }
+  .photo img { width: 100%; height: 100%; object-fit: cover; }
+  .photo .tag { position: absolute; left: 12px; bottom: 12px; background: rgba(255,255,255,.92); border-radius: 999px; padding: 7px 14px; font-size: 13px; font-weight: 700; }
+
+  .fieldcard { background: var(--field); border-radius: var(--r-l); padding: 20px; }
+  .fieldcard .k { font-size: 14px; font-weight: 700; }
+  .fieldcard p { font-size: 21px; line-height: 1.22; font-weight: 700; letter-spacing: -0.01em; margin-top: 8px; }
+
+  .row { display: flex; gap: 12px; align-items: center; }
+  .avatar { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; flex: none; border: 2px solid var(--ground); }
+  .avatars { display: flex; }
+  .avatars img + img { margin-left: -12px; }
+  .meta { font-size: 13.5px; font-weight: 500; color: var(--ink-2); line-height: 1.3; }
+  .meta b { color: var(--ink); font-weight: 700; }
+
+  .story { display: grid; grid-template-columns: 96px 1fr; gap: 14px; align-items: center; background: var(--surface); border-radius: var(--r-m); padding: 10px; }
+  .story .photo { height: 86px; border-radius: 12px; }
+  .story b { font-size: 16px; line-height: 1.25; font-weight: 700; display: block; }
+
+  .stat b { display: block; font-size: 30px; font-weight: 700; letter-spacing: -0.03em; line-height: 1; }
+  .stat span { font-size: 13px; font-weight: 500; color: var(--ink-2); line-height: 1.3; display: block; margin-top: 6px; }
+
+  /* app + article */
+  .banner { display: flex; align-items: center; gap: 12px; background: var(--surface); padding: 10px 16px; }
+  .banner .x { font-size: 18px; color: var(--ink-2); }
+  .appicon { width: 46px; height: 46px; border-radius: 12px; background: var(--field); display: grid; place-items: center; flex: none; }
+  .appicon img { width: 32px; }
+  .banner b { font-size: 15px; font-weight: 700; display: block; }
+  .banner small { font-size: 12.5px; color: var(--ink-2); font-weight: 500; }
+  .banner .get { margin-left: auto; background: var(--ink); color: #fff; border-radius: 999px; padding: 9px 16px; font-size: 14px; font-weight: 700; }
+  .crumb { font-size: 13.5px; color: var(--ink-2); font-weight: 600; margin: 18px 0 8px; }
+  .answer { background: var(--surface); border-radius: var(--r-m); padding: 18px; margin-top: 18px; }
+  .answer .k { font-size: 13.5px; font-weight: 700; color: var(--cobalt); }
+  .answer p { font-size: 17px; line-height: 1.42; font-weight: 500; margin-top: 6px; }
+  .bars i { display: block; height: 10px; border-radius: 6px; background: var(--sunk); margin: 12px 0; }
+  .bars i:nth-child(2n) { width: 86%; } .bars i:nth-child(3n) { width: 70%; }
+
+  .tabbar { position: absolute; left: 0; right: 0; bottom: 0; padding: 10px 26px 30px; background: var(--surface); display: flex; justify-content: space-between; }
+  .tab { font-size: 12px; font-weight: 600; color: var(--ink-2); text-align: center; width: 64px; }
+  .tab i { display: block; width: 28px; height: 28px; border-radius: 9px; background: var(--sunk); margin: 0 auto 5px; }
+  .tab.on { color: var(--ink); } .tab.on i { background: var(--ink); }
+</style>
+</head>
+<body>
+
+<!-- ============ A · Start, erster Besuch ============ -->
+<div class="phone" id="a-start"><div class="screen">
+  <div class="status"><span>03:07</span><div class="island"></div><div class="bat"></div></div>
+  <div class="body">
+    <div class="head"><img src="../assets/wellcome-wordmark.png" alt="wellcome"><div class="burger"><i></i></div></div>
+    <div class="note"><span class="dot"></span><span>ElternLeben ist jetzt <b>wellcome</b></span></div>
+    <h1>Echte Hilfe für Eltern. Kostenlos, von Expert*innen.</h1>
+    <div class="ask">Wie alt ist dein Kind?</div>
+    <div class="chips">
+      <span class="chip">Schwanger</span><span class="chip">0–1 Jahr</span><span class="chip">1–3</span>
+      <span class="chip">3–6</span><span class="chip">Schulkind</span><span class="chip">Teenager</span>
+    </div>
+    <div class="ask">Oder: Was ist gerade los?</div>
+    <div class="search"><span class="lens"></span>Mein Baby schläft nicht …<span class="mic"></span></div>
+    <div class="chips" style="margin-top:10px">
+      <span class="chip small">Schlaf</span><span class="chip small">Schreien</span><span class="chip small">Stillen</span><span class="chip small">Wutanfälle</span>
+    </div>
+  </div>
+  <div class="help">
+    <div class="btn primary">Hebamme per WhatsApp</div>
+    <div class="btn secondary">Frage stellen<small>Antwort in max. 36 Std.</small></div>
+  </div>
+</div></div>
+
+<!-- ============ B · Alter gewählt ============ -->
+<div class="phone" id="b-alter"><div class="screen">
+  <div class="status"><span>03:08</span><div class="island"></div><div class="bat"></div></div>
+  <div class="body">
+    <div class="head"><img src="../assets/wellcome-wordmark.png" alt="wellcome"><div class="burger"><i></i></div></div>
+    <div class="chips" style="margin-bottom:6px"><span class="chip on">0–1 Jahr</span><span class="chip">ändern</span></div>
+    <div class="meta" style="margin-bottom:18px">Nur auf deinem Handy gespeichert. Kein Login.</div>
+    <div class="fieldcard">
+      <div class="k">Dein Tipp für heute</div>
+      <p>Nachts aufwachen ist im ersten Jahr normal. So tankst du selbst Kraft.</p>
+    </div>
+    <h2 style="margin:24px 0 12px;font-size:21px">Häufig in diesem Alter</h2>
+    <div class="story" style="margin-bottom:10px"><div class="photo"><img src="../assets/photos/stillen.jpg" alt=""></div>
+      <div><b>Stillen in der Nacht</b><div class="row" style="margin-top:8px;gap:8px"><img class="avatar" style="width:26px;height:26px;border:none" src="../assets/photos/karin-hackbarth.jpg" alt=""><span class="meta">Karin Hackbarth, Hebamme</span></div></div></div>
+    <div class="story"><div class="photo"><img src="../assets/photos/baby-winkt.jpg" alt=""></div>
+      <div><b>Wie viel Schlaf braucht mein Baby?</b><div class="row" style="margin-top:8px;gap:8px"><img class="avatar" style="width:26px;height:26px;border:none" src="../assets/photos/nora-bromm.jpg" alt=""><span class="meta">Nora Bromm, Familien&shy;begleiterin</span></div></div></div>
+  </div>
+  <div class="help">
+    <div class="btn primary">Hebamme per WhatsApp</div>
+    <div class="btn secondary">Frage stellen<small>Antwort in max. 36 Std.</small></div>
+  </div>
+</div></div>
+
+<!-- ============ C · Vertrauen ============ -->
+<div class="phone" id="c-vertrauen"><div class="screen">
+  <div class="status"><span>03:09</span><div class="island"></div><div class="bat"></div></div>
+  <div class="body" style="padding-top:8px">
+    <div class="photo" style="height:300px"><img src="../assets/photos/online-beratung-mutter-baby.jpg" alt="" style="object-position:30% 50%"><span class="tag">Ein Angebot der wellcome gGmbH</span></div>
+    <h2 style="margin-top:22px">Echte Menschen. Seit 2002 für Familien da.</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:22px">
+      <div class="stat"><b>~220</b><span>Standorte in DE, AT, CH</span></div>
+      <div class="stat"><b>0 €</b><span>gemeinnützig, ohne Werbung</span></div>
+      <div class="stat"><b>36 h</b><span>bis zur Antwort, maximal</span></div>
+    </div>
+    <div class="row" style="margin-top:26px">
+      <div class="avatars"><img class="avatar" src="../assets/photos/karin-hackbarth.jpg" alt=""><img class="avatar" src="../assets/photos/nora-bromm.jpg" alt=""><img class="avatar" src="../assets/photos/elisabeth-krista.jpg" alt=""><img class="avatar" src="../assets/photos/timm-korth.jpg" alt=""></div>
+      <div class="meta"><b>Hebammen, Pädagog*innen, Psycholog*innen</b><br>mit Namen und Gesicht</div>
+    </div>
+  </div>
+  <div class="help">
+    <div class="btn primary">Hebamme per WhatsApp</div>
+    <div class="btn secondary">Frage stellen<small>Antwort in max. 36 Std.</small></div>
+  </div>
+</div></div>
+
+<!-- ============ D · Artikel + Smart App Banner ============ -->
+<div class="phone" id="d-artikel"><div class="screen">
+  <div class="status" style="background:var(--surface)"><span>03:12</span><div class="island"></div><div class="bat"></div></div>
+  <div class="banner"><span class="x">×</span><div class="appicon"><img src="../assets/wellcome-angel.png" alt=""></div><div><b>wellcome</b><small>Tägliche Tipps für dein Baby</small></div><span class="get">Laden</span></div>
+  <div class="body">
+    <div class="crumb">Baby · Schlaf</div>
+    <h1 style="font-size:32px">Wie viel Schlaf braucht mein Baby?</h1>
+    <div class="row" style="margin-top:14px"><img class="avatar" src="../assets/photos/karin-hackbarth.jpg" alt=""><div class="meta">Geprüft von <b>Karin Hackbarth</b>, Hebamme<br>aktualisiert im Oktober 2026</div></div>
+    <div class="answer"><div class="k">Kurz gesagt</div>
+      <p>Neugeborene schlafen 14 bis 17 Stunden am Tag, in vielen kurzen Phasen. Nachts aufwachen ist im ersten Jahr normal.</p></div>
+    <div class="bars" style="margin-top:20px"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  </div>
+</div></div>
+
+<!-- ============ E · App-Angebot am Artikelende ============ -->
+<div class="phone" id="e-bruecke"><div class="screen">
+  <div class="status"><span>03:14</span><div class="island"></div><div class="bat"></div></div>
+  <div class="body">
+    <div class="bars" style="margin-top:10px"><i></i><i></i><i></i></div>
+    <div class="fieldcard" style="margin-top:22px;padding:24px">
+      <div class="k">Für dich und dein Baby, 0–1 Jahr</div>
+      <p style="font-size:27px;line-height:1.1;margin-top:10px">Jeden Abend ein Tipp, der zu deinem Baby passt.</p>
+      <div class="photo" style="height:170px;margin-top:18px;border-radius:18px"><img src="../assets/photos/hebammensprechstunde.png" alt="" style="object-position:60% 40%"></div>
+      <div class="pill" style="margin-top:18px;font-size:16px;width:100%;justify-content:space-between">In der App weiterlesen<span class="go"><svg viewBox="0 0 16 16"><path d="M4 12L12 4M6 4h6v6"/></svg></span></div>
+      <div class="meta" style="margin-top:12px;color:var(--ink);text-align:center">Alter und Thema werden übernommen.</div>
+    </div>
+    <div style="text-align:center;margin-top:18px;font-size:15px;font-weight:600;color:var(--cobalt)">Lieber per E-Mail? Newsletter</div>
+  </div>
+</div></div>
+
+<!-- ============ F · App nach Deep Link ============ -->
+<div class="phone" id="f-app"><div class="screen">
+  <div class="status"><span>03:15</span><div class="island"></div><div class="bat"></div></div>
+  <div class="body">
+    <div class="head"><img src="../assets/wellcome-wordmark.png" alt="wellcome"><img class="avatar" src="../assets/photos/baby-winkt.jpg" alt="" style="width:44px;height:44px"></div>
+    <h1 style="font-size:32px">Willkommen.<br>Alles schon eingestellt.</h1>
+    <div class="chips" style="margin-top:14px"><span class="chip on">Baby, 0–1 Jahr</span><span class="chip on">Schlaf</span></div>
+    <div class="fieldcard" style="margin-top:22px">
+      <div class="k">Heute, 1. Tipp</div>
+      <p>Ein kurzes Ritual vor dem Schlafen gibt deinem Baby Sicherheit.</p>
+    </div>
+    <div class="story" style="margin-top:12px;grid-template-columns:1fr auto"><div><b>Eltern-Community</b><span class="meta">Babys im gleichen Alter</span></div><div class="avatars"><img class="avatar" src="../assets/photos/kind-gelbe-muetze.jpg" alt=""><img class="avatar" src="../assets/photos/mutter-tochter.jpg" alt=""><img class="avatar" src="../assets/photos/landing-header.jpg" alt=""></div></div>
+    <div class="story" style="margin-top:10px;grid-template-columns:1fr auto"><div><b>wellcome vor Ort</b><span class="meta">Hilfe in deiner Nähe</span></div><span class="chip small" style="background:var(--sky)">Hamburg</span></div>
+  </div>
+  <div class="tabbar"><div class="tab on"><i></i>Für dich</div><div class="tab"><i></i>Tipps</div><div class="tab"><i></i>Community</div><div class="tab"><i></i>Vor Ort</div></div>
+</div></div>
+
+</body>
+</html>

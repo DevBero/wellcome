@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>wellcome – Wireframes</title>
+<link rel="stylesheet" href="../design/tokens.css">
+<style>
+  .board { width: 2400px; padding: 80px 90px 90px; background: var(--ground); }
+  .board h1 { font-size: 64px; font-weight: 700; letter-spacing: -0.035em; }
+  .board p.lead { font-size: 26px; color: var(--ink-2); font-weight: 500; margin-top: 12px; }
+  .grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 34px; margin-top: 60px; }
+  figure img { width: 100%; }
+  figcaption { margin-top: 22px; font-size: 24px; font-weight: 700; letter-spacing: -0.015em; }
+  figcaption span { display: block; font-size: 19px; font-weight: 500; color: var(--ink-2); margin-top: 4px; line-height: 1.35; }
+  .group { font-size: 20px; font-weight: 700; padding: 8px 18px; border-radius: 999px; display: inline-block; margin-bottom: 18px; }
+</style>
+</head>
+<body>
+<div class="board">
+  <h1>Startseite und App-Brücke, mobil</h1>
+  <p class="lead">Sechs Screens für die Mutter um 03:07 Uhr. Ein Screen, eine Aufgabe.</p>
+  <div class="grid">
+    <figure><span class="group" style="background:var(--surface)">Website</span><img src="png/a-start.png" alt=""><figcaption>Start<span>Alter, Anliegen oder sofort Hilfe</span></figcaption></figure>
+    <figure><span class="group" style="background:var(--surface)">Website</span><img src="png/b-alter.png" alt=""><figcaption>Alter gewählt<span>Seite passt sich an, ohne Login</span></figcaption></figure>
+    <figure><span class="group" style="background:var(--surface)">Website</span><img src="png/c-vertrauen.png" alt=""><figcaption>Vertrauen<span>Träger, Zahlen, echte Gesichter</span></figcaption></figure>
+    <figure><span class="group" style="background:var(--field)">App-Brücke</span><img src="png/d-artikel.png" alt=""><figcaption>Artikel<span>Kurze Antwort zuerst, App-Banner statt Pop-up</span></figcaption></figure>
+    <figure><span class="group" style="background:var(--field)">App-Brücke</span><img src="png/e-bruecke.png" alt=""><figcaption>Angebot<span>Am Artikelende, mit Nutzen</span></figcaption></figure>
+    <figure><span class="group" style="background:var(--field)">App-Brücke</span><img src="png/f-app.png" alt=""><figcaption>App<span>Startet schon eingestellt</span></figcaption></figure>
+  </div>
+</div>
+</body>
+</html>

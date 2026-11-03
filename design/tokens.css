@@ -1,0 +1,45 @@
+/* wellcome concept – shared tokens for wireframes and deck
+   Style reference: aurevo.framer.website (near-white ground, one bright field,
+   dark pill buttons, big rounded photo cards, large tight grotesk type). */
+
+@font-face { font-family: "Open Sauce One"; font-weight: 400; font-display: block; src: url("../assets/fonts/open-sauce-one-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Open Sauce One"; font-weight: 500; font-display: block; src: url("../assets/fonts/open-sauce-one-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Open Sauce One"; font-weight: 600; font-display: block; src: url("../assets/fonts/open-sauce-one-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family: "Open Sauce One"; font-weight: 700; font-display: block; src: url("../assets/fonts/open-sauce-one-latin-700-normal.woff2") format("woff2"); }
+@font-face { font-family: "Open Sauce One"; font-weight: 800; font-display: block; src: url("../assets/fonts/open-sauce-one-latin-800-normal.woff2") format("woff2"); }
+
+:root {
+  /* ground and surfaces: a tone step, never a line or shadow */
+  --ground: #F6F5F1;
+  --surface: #FFFFFF;
+  --sunk: #EDEBE5;
+  /* ink */
+  --ink: #012D67;          /* wellcome Navy */
+  --ink-2: #4B5D7A;        /* secondary text, 6.4:1 on white */
+  /* the one bright field (Aurevo's lime → wellcome Warm Yellow) */
+  --field: #FFE868;
+  /* brand */
+  --cobalt: #184EB7;
+  --sky: #C2E4F7;
+  --peach: #FFE3CC;
+  --red: #D3302F;
+  --el-green: #53A33A;     /* today's ElternLeben green, only to show the past */
+
+  --font: "Open Sauce One", "Inter", system-ui, sans-serif;
+  --r-xl: 32px; --r-l: 24px; --r-m: 18px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font); color: var(--ink); background: var(--ground); -webkit-font-smoothing: antialiased; }
+img { display: block; }
+
+/* Aurevo-style pill button: dark pill, white round icon on the right */
+.pill { display: inline-flex; align-items: center; gap: 14px; background: var(--ink); color: #fff; border-radius: 999px; padding: 6px 6px 6px 22px; font-weight: 600; white-space: nowrap; }
+.pill .go { width: 36px; height: 36px; border-radius: 50%; background: #fff; display: grid; place-items: center; flex: none; }
+.pill .go svg { width: 16px; height: 16px; stroke: var(--ink); stroke-width: 2.4; fill: none; }
+.pill.light { background: var(--surface); color: var(--ink); }
+.pill.light .go { background: var(--ink); }
+.pill.light .go svg { stroke: #fff; }
+.pill.yellow { background: var(--field); color: var(--ink); }
+.pill.yellow .go { background: var(--ink); }
+.pill.yellow .go svg { stroke: #fff; }

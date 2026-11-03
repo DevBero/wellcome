@@ -40,8 +40,8 @@
     },
     {
       "@type": "Person",
-      "@id": "https://www.elternleben.de/ueber-uns/experten/#karin",
-      "name": "Karin [Nachname]",
+      "@id": "https://www.elternleben.de/ueber-uns/experten/#karin-hackbarth",
+      "name": "Karin Hackbarth",
       "jobTitle": "Hebamme",
       "knowsAbout": ["Stillen", "Babyschlaf", "Beikost", "Wochenbett"],
       "image": "https://www.elternleben.de/fileadmin/experten/karin.jpg",

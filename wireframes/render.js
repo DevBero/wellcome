@@ -1,4 +1,4 @@
-// Renders each wireframe slide to PNG (full slide + each phone separately).
+// Renders every phone in screens.html to its own PNG (transparent corners).
 // Usage: node wireframes/render.js
 const { chromium } = require('playwright');
 const path = require('path');
@@ -6,25 +6,27 @@ const fs = require('fs');
 
 const dir = __dirname;
 const out = path.join(dir, 'png');
+fs.rmSync(out, { recursive: true, force: true });
 fs.mkdirSync(out, { recursive: true });
-const slides = fs.readdirSync(dir).filter(f => /^slide.*\.html$/.test(f));
 
 (async () => {
   const browser = await chromium.launch();
-  const page = await browser.newPage({ viewport: { width: 1920, height: 1080 }, deviceScaleFactor: 2 });
-  for (const f of slides) {
-    const name = f.replace('.html', '');
-    await page.goto('file://' + path.join(dir, f));
-    await page.evaluate(() => document.fonts.ready);
-    await page.waitForTimeout(300);
-    await page.locator('.slide').screenshot({ path: path.join(out, `${name}.png`) });
-    for (const el of await page.locator('.device[id]').all()) {
-      const id = await el.getAttribute('id');
-      await el.locator('.phone, .desktop').first().screenshot({ path: path.join(out, `${name}-${id}.png`), omitBackground: true });
-    }
-    // overflow check: content taller than its screen
-    const over = await page.evaluate(() => [...document.querySelectorAll('.content')].map(c => c.scrollHeight - c.clientHeight));
-    console.log(name, 'overflow px per screen:', over.join(', '));
+  const page = await browser.newPage({ viewport: { width: 1500, height: 1000 }, deviceScaleFactor: 3 });
+  await page.goto('file://' + path.join(dir, 'screens.html'));
+  await page.evaluate(() => document.fonts.ready);
+  await page.waitForTimeout(300);
+  const fonts = await page.evaluate(() => [...document.fonts].filter(f => f.status === 'loaded').map(f => f.family + ' ' + f.weight));
+  console.log('fonts loaded:', [...new Set(fonts)].join(', '));
+  for (const el of await page.locator('.phone').all()) {
+    const id = await el.getAttribute('id');
+    await el.screenshot({ path: path.join(out, `${id}.png`), omitBackground: true });
+    const over = await el.evaluate(p => { const b = p.querySelector('.body'); return b.scrollHeight - b.clientHeight; });
+    const help = await el.evaluate(p => { const h = p.querySelector('.help, .tabbar'); if (!h) return 0; const last = [...p.querySelectorAll('.body > *')].pop().getBoundingClientRect().bottom; return Math.round(last - h.getBoundingClientRect().top); });
+    console.log(id, 'overflow', over, 'overlap with bottom bar', help);
   }
+  const board = await browser.newPage({ viewport: { width: 2400, height: 1400 }, deviceScaleFactor: 1.5 });
+  await board.goto('file://' + path.join(dir, 'overview.html'));
+  await board.evaluate(() => document.fonts.ready);
+  await board.locator('.board').screenshot({ path: path.join(out, 'uebersicht.png') });
   await browser.close();
 })();
