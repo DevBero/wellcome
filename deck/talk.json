@@ -1,0 +1,71 @@
+{
+  "sections": [
+    { "title": "Einstieg", "time": "0:00–1:30", "slides": [
+      { "n": 1, "name": "Titel", "core": "Ich schaue aus zwei Richtungen: der Mensch im schwierigen Moment und die Maschine.",
+        "points": ["Danke für die Aufgabe", "Ihr wollt sehen, wie ich denke: bei jeder Entscheidung sage ich das Warum", "Ablauf: Analyse, eure 4 Fragen, Tech-Stack", "Nichts davon ist fertig, ich freue mich auf eure Sicht"] },
+      { "n": 2, "name": "03:07", "core": "An diesem Moment messe ich alles, was ich heute zeige.",
+        "points": ["Mutter, 3 Uhr nachts, Baby im Arm, Handy in der anderen Hand", "30 Sekunden Geduld", "Hilft eine Idee ihr nicht, fliegt sie raus"] }
+    ]},
+    { "title": "Analyse", "time": "1:30–3:45", "slides": [
+      { "n": 3, "name": "Eure Stärke", "core": "Euer Kern sind echte Menschen.",
+        "points": ["Kostenlos, Fachleute mit Namen und Gesicht", "E-Mail-Antwort in max. 36 Std.", "Beispiel: Karin Hackbarth, Hebamme seit 1996, per Telefon und WhatsApp", "Ich mache den Kern sichtbarer, ich erfinde nichts Neues"] },
+      { "n": 4, "name": "Der Weg ist lang", "core": "Nicht der Inhalt ist das Problem, sondern der Weg dorthin.",
+        "points": ["Methode: auf dem iPhone bis unten gescrollt, rund 14 Bildschirme", "H1 wirbt für einen Kurs (Eltern-Stress-Test)", "Kein Einstieg für „Ich brauche jetzt Hilfe“", "Leiste unten: Shop zuerst, nicht die Hebamme", "Keine Kritik an Einzelentscheidungen, nur in Summe zu viel"] },
+      { "n": 5, "name": "Für Maschinen unsichtbar", "core": "Ich habe auch das HTML gelesen, also das, was Maschinen sehen.",
+        "points": ["0 strukturierte Daten (kein JSON-LD)", "403 für GPTBot und ClaudeBot, robots.txt erlaubt aber alles", "FAQ-Seite ohne JavaScript leer", "Von außen gemessen, mit Search Console würde ich es prüfen"],
+        "hint": "403 als Frage stellen: „Ist das bewusst so entschieden?“" }
+    ]},
+    { "title": "Das Ziel", "time": "3:45–4:15", "slides": [
+      { "n": 6, "name": "Gelbe Folie", "core": "In 5 Sekunden Vertrauen, in 2 Klicks Hilfe.",
+        "points": ["Mobile first, mit einer Hand bedienbar", "Situation vor Struktur: Anliegen statt Menü", "Ruhig und warm: wer nachts kommt, braucht Ruhe"] }
+    ]},
+    { "title": "Frage 1: Einstiege", "time": "4:15–6:45", "slides": [
+      { "n": 7, "name": "Drei Wege hinein", "core": "Eltern kommen nicht mit Zielgruppen, sondern mit Stimmungen.",
+        "points": ["Stöbern: Alter wählen (gibt es schon im Menü, ich hole es nach oben)", "Konkretes Problem: Anliegen-Chips und Suche „Was beschäftigt dich gerade?“", "Jetzt jemanden: feste Leiste unten, Hebamme per WhatsApp und Frage stellen, statt Shop", "Heute tippt man ganze Fragen wie bei ChatGPT. Die Suche versteht später Fragen, erfindet aber nichts, sondern führt zu geprüften Inhalten und echten Beraterinnen", "Chips aus euren Daten ableiten, nicht raten"] },
+      { "n": 8, "name": "Die Seite passt sich an", "core": "Ein Tipp, und die Seite passt sich an.",
+        "points": ["Tipp für heute und Artikel genau für dieses Alter", "Jeder Artikel mit dem Gesicht der Fachperson", "Kein Login, kein Formular", "Alter nur auf dem Handy, nur wenn selbst gewählt", "Warum: Personalisierung ohne Datensammlung passt zu einer gGmbH"] }
+    ]},
+    { "title": "Frage 2: SEO und GEO", "time": "6:45–8:45", "slides": [
+      { "n": 9, "name": "Lesbar für Mensch und Maschine", "core": "KI-Tools zitieren, was sie verstehen und dem sie vertrauen.",
+        "points": ["Strukturierte Daten: wellcome, gemeinnützig, seit 2002. Karin Hackbarth, Hebamme", "alternateName „ElternLeben“: beide Namen verknüpft, Rankings bleiben beim Markenwechsel", "Antwort im ersten Satz, z. B. „14 bis 17 Std. Schlaf“", "HTML vom Server, vor allem die FAQ", "Crawler-Policy bewusst in robots.txt: Suche ja, Training eure Entscheidung", "Messen: Search Console und jeden Monat 10 Elternfragen an ChatGPT, Perplexity, Gemini"],
+        "hint": "Falls gefragt: Google zeigt FAQ-Snippets kaum noch, das Markup lohnt sich trotzdem für KI. llms.txt ist kein offizieller Standard." }
+    ]},
+    { "title": "Frage 3: Marke und Vertrauen", "time": "8:45–10:15", "slides": [
+      { "n": 10, "name": "Die Brücke", "core": "Der Markenwechsel als Brücke, nicht als Bruch.",
+        "points": ["Vertrauen = Wer steht dahinter? Wer hilft konkret? Wem hat es geholfen?", "Direkt unter dem Einstieg: seit 2002, ~220 Standorte, kostenlos und gemeinnützig", "Echte Gesichter statt Stockfotos, Zitate mit Kontext („Mutter von Zwillingen, 4 Monate“)", "Logo heißt schon „wellcome für dein ElternLeben“: ElternLeben, dann „ist jetzt wellcome“, dann wellcome", "Blau für Vertrauen, warme helle Flächen, Gelb nur fürs Wichtigste"],
+        "hint": "Zahlen sind von 2023: „Die würde ich mit euch aktualisieren.“" }
+    ]},
+    { "title": "Frage 4: Die App", "time": "10:15–12:15", "slides": [
+      { "n": 11, "name": "Jede Funktion hat ein Vorbild", "core": "Die App ist kein Fremdkörper, sondern die nächste Stufe.",
+        "points": ["Navigation nach Elternphase → Beratung nach Alter", "Newsletter → tägliche Tipps", "Webinare und Berichte → Community", "Angebote vor Ort → lokal", "Harmonisch heißt: „mehr von dem, was ich gerade gut fand“"] },
+      { "n": 12, "name": "Im richtigen Moment", "core": "Conversion entsteht im richtigen Moment, nicht beim ersten Besuch.",
+        "points": ["Kein Pop-up. Mobil ein dezentes Banner, Desktop ein QR-Code", "Angebot am Artikelende, passend zum Thema. Newsletter als Alternative", "Wichtigster Punkt: kein zweites Onboarding. Alter und Thema gehen per Deep Link mit", "Messen: Klick, Installation, aktiv nach 7 Tagen"],
+        "hint": "Es gibt schon eine ElternLeben-App für Kurse. Fragen, ob die neue sie ersetzt." }
+    ]},
+    { "title": "Tech-Entscheidung", "time": "12:15–13:45", "slides": [
+      { "n": 13, "name": "Neues Frontend, bewährtes CMS", "core": "Neues Frontend mit Next.js, TYPO3 bleibt.",
+        "points": ["Kein Big Bang: TYPO3 liefert Inhalte als Daten, alte und neue Seiten laufen parallel", "Start mit der Startseite, dann Schritt für Schritt", "Ein Team für Web (Next.js) und App (React Native): weniger Kosten", "Volle Kontrolle über HTML, Daten und Ladezeit", "Ehrlich: keine TYPO3-Erfahrung. Genau deshalb dieser Weg"] }
+    ]},
+    { "title": "Abschluss", "time": "13:45–15:00", "slides": [
+      { "n": 14, "name": "Erst zuhören, dann bauen", "core": "Ich fange mit zwei Wochen Zuhören an, nicht mit Code.",
+        "points": ["Analytics, Suchanfragen, Beratungsthemen, 5 Gespräche mit Eltern", "Neue Startseite in ca. 6–8 Wochen", "Dann Personalisierung, mit dem App-Launch die Umstellung", "Erfolg: höchstens 2 Klicks, Nennungen in KI-Antworten, aktiv nach 7 Tagen"] },
+      { "n": 15, "name": "Fragen an euch", "core": "Mit euren Daten sähe einiges anders aus.",
+        "points": ["Welche 3 Anliegen kommen in der Beratung am häufigsten?", "Wann kommt die Umbenennung, bleibt elternleben.de?", "Wo seht ihr meine Rolle: Website, App oder beides?", "Danke."] }
+    ]}
+  ],
+  "qa": [
+    ["Keine TYPO3-Erfahrung?", "Stimmt. Deshalb headless: Redaktion bleibt, ich arbeite im Frontend, die Schnittstelle arbeite ich mir ein."],
+    ["Warum nicht in TYPO3 neu gestalten?", "Geht, aber dann Web und App getrennt. Mit React teilen beide Design-System und Code."],
+    ["Datenschutz bei Personalisierung?", "Kein Login, Alter nur auf Wunsch auf dem Gerät, kein Tracking. Details mit eurer Datenschutzberatung."],
+    ["Warum keine PWA?", "Zuverlässige Push-Nachrichten und Platz im App Store. Mit Expo bleibt der Aufwand klein."],
+    ["KI-Suche mit falschen Tipps?", "Erzeugt keine eigenen Antworten, findet nur geprüfte Artikel und verweist auf echte Beraterinnen."],
+    ["Warum Blau, wir mögen Grün?", "Blau ist eure neue Marke und steht für Vertrauen. Grün kann in der Übergangszeit als Akzent bleiben."],
+    ["Verlieren wir Rankings?", "Nicht, wenn Domain und URLs bleiben. Beide Namen in den Daten verknüpfen, schrittweise, Search Console beobachten."],
+    ["Kosten, Dauer?", "Seriös nach den 2 Wochen Analyse. Grob 6–8 Wochen für die Startseite."]
+  ],
+  "tips": [
+    "Bei jeder Entscheidung das Warum sagen. Genau danach haben sie gefragt.",
+    "Zeitdruck? Folie 9 (SEO) und 13 (Tech) kürzen, die Details kommen in der Diskussion.",
+    "Die 403-Sache als Frage stellen, nicht als Fehler."
+  ]
+}

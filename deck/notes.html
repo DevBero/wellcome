@@ -1,0 +1,215 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8">
+<title>Sprechnotizen – Case Study wellcome</title>
+<link rel="stylesheet" href="../design/tokens.css">
+<style>
+  @page { size: A4; margin: 14mm 14mm 16mm; }
+  body { background: #fff; font-size: 11pt; line-height: 1.4; }
+  header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 6mm; }
+  header h1 { font-size: 24pt; font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; }
+  header p { font-size: 11pt; color: var(--ink-2); margin-top: 2mm; }
+  header img { height: 13mm; }
+  .timeline { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2mm; margin-bottom: 7mm; }
+  .tl { background: var(--ground); border-radius: 3mm; padding: 2.4mm 3.5mm; display: flex; gap: 3mm; align-items: baseline; }
+  .tl b { font-size: 9.5pt; font-weight: 700; white-space: nowrap; }
+  .tl span { font-size: 9.5pt; color: var(--ink-2); font-weight: 500; }
+  section { margin-bottom: 4mm; }
+  .sec { display: flex; justify-content: space-between; align-items: center; background: var(--field); border-radius: 999px; padding: 2.2mm 5mm; margin-bottom: 3mm; break-after: avoid; }
+  .sec h2 { font-size: 14pt; font-weight: 700; letter-spacing: -0.02em; }
+  .sec .time { font-size: 11pt; font-weight: 700; }
+  .slide { display: grid; grid-template-columns: 44mm 1fr; gap: 5mm; padding: 2mm 0 4mm; break-inside: avoid; }
+  .slide img { width: 44mm; border-radius: 2mm; margin-top: 1mm; }
+  .label { font-size: 9pt; font-weight: 600; color: var(--ink-2); }
+  .core { font-size: 13pt; font-weight: 700; letter-spacing: -0.01em; line-height: 1.25; margin: 0.8mm 0 1.6mm; }
+  ul { padding-left: 4.5mm; }
+  li { margin: 0.6mm 0; font-weight: 500; }
+  li::marker { color: var(--cobalt); }
+  .hint { margin-top: 2mm; background: var(--ground); border-radius: 2mm; padding: 1.8mm 3mm; font-size: 9.5pt; font-weight: 600; }
+  .extra { break-before: page; }
+  .extra h2 { font-size: 16pt; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 3mm; }
+  .qa { display: grid; grid-template-columns: 52mm 1fr; gap: 4mm; padding: 2.4mm 0; break-inside: avoid; }
+  .qa + .qa { border-top: 0.3mm solid var(--sunk); }
+  .qa b { font-weight: 700; }
+  .qa span { font-weight: 500; }
+  .tips { margin-top: 8mm; background: var(--field); border-radius: 4mm; padding: 5mm 6mm 5mm 10mm; }
+  .tips li { font-weight: 600; margin: 1.2mm 0; }
+</style></head><body>
+  <header><div><h1>Sprechnotizen</h1><p>Case Study: Startseite ElternLeben → wellcome · 15 Minuten</p></div><img src="../assets/wellcome-logo-mark.png" alt=""></header>
+  <div class="timeline"><div class="tl"><b>0:00–1:30</b><span>Einstieg</span></div><div class="tl"><b>1:30–3:45</b><span>Analyse</span></div><div class="tl"><b>3:45–4:15</b><span>Das Ziel</span></div><div class="tl"><b>4:15–6:45</b><span>Frage 1: Einstiege</span></div><div class="tl"><b>6:45–8:45</b><span>Frage 2: SEO und GEO</span></div><div class="tl"><b>8:45–10:15</b><span>Frage 3: Marke und Vertrauen</span></div><div class="tl"><b>10:15–12:15</b><span>Frage 4: Die App</span></div><div class="tl"><b>12:15–13:45</b><span>Tech-Entscheidung</span></div><div class="tl"><b>13:45–15:00</b><span>Abschluss</span></div></div>
+  
+  <section>
+    <div class="sec"><h2>Einstieg</h2><span class="time">0:00–1:30</span></div>
+    
+      <div class="slide">
+        <img src="out/folie-01.png" alt="">
+        <div>
+          <div class="label">Folie 1 · Titel</div>
+          <p class="core">Ich schaue aus zwei Richtungen: der Mensch im schwierigen Moment und die Maschine.</p>
+          <ul><li>Danke für die Aufgabe</li><li>Ihr wollt sehen, wie ich denke: bei jeder Entscheidung sage ich das Warum</li><li>Ablauf: Analyse, eure 4 Fragen, Tech-Stack</li><li>Nichts davon ist fertig, ich freue mich auf eure Sicht</li></ul>
+          
+        </div>
+      </div>
+      <div class="slide">
+        <img src="out/folie-02.png" alt="">
+        <div>
+          <div class="label">Folie 2 · 03:07</div>
+          <p class="core">An diesem Moment messe ich alles, was ich heute zeige.</p>
+          <ul><li>Mutter, 3 Uhr nachts, Baby im Arm, Handy in der anderen Hand</li><li>30 Sekunden Geduld</li><li>Hilft eine Idee ihr nicht, fliegt sie raus</li></ul>
+          
+        </div>
+      </div>
+  </section>
+  <section>
+    <div class="sec"><h2>Analyse</h2><span class="time">1:30–3:45</span></div>
+    
+      <div class="slide">
+        <img src="out/folie-03.png" alt="">
+        <div>
+          <div class="label">Folie 3 · Eure Stärke</div>
+          <p class="core">Euer Kern sind echte Menschen.</p>
+          <ul><li>Kostenlos, Fachleute mit Namen und Gesicht</li><li>E-Mail-Antwort in max. 36 Std.</li><li>Beispiel: Karin Hackbarth, Hebamme seit 1996, per Telefon und WhatsApp</li><li>Ich mache den Kern sichtbarer, ich erfinde nichts Neues</li></ul>
+          
+        </div>
+      </div>
+      <div class="slide">
+        <img src="out/folie-04.png" alt="">
+        <div>
+          <div class="label">Folie 4 · Der Weg ist lang</div>
+          <p class="core">Nicht der Inhalt ist das Problem, sondern der Weg dorthin.</p>
+          <ul><li>Methode: auf dem iPhone bis unten gescrollt, rund 14 Bildschirme</li><li>H1 wirbt für einen Kurs (Eltern-Stress-Test)</li><li>Kein Einstieg für „Ich brauche jetzt Hilfe“</li><li>Leiste unten: Shop zuerst, nicht die Hebamme</li><li>Keine Kritik an Einzelentscheidungen, nur in Summe zu viel</li></ul>
+          
+        </div>
+      </div>
+      <div class="slide">
+        <img src="out/folie-05.png" alt="">
+        <div>
+          <div class="label">Folie 5 · Für Maschinen unsichtbar</div>
+          <p class="core">Ich habe auch das HTML gelesen, also das, was Maschinen sehen.</p>
+          <ul><li>0 strukturierte Daten (kein JSON-LD)</li><li>403 für GPTBot und ClaudeBot, robots.txt erlaubt aber alles</li><li>FAQ-Seite ohne JavaScript leer</li><li>Von außen gemessen, mit Search Console würde ich es prüfen</li></ul>
+          <p class="hint">403 als Frage stellen: „Ist das bewusst so entschieden?“</p>
+        </div>
+      </div>
+  </section>
+  <section>
+    <div class="sec"><h2>Das Ziel</h2><span class="time">3:45–4:15</span></div>
+    
+      <div class="slide">
+        <img src="out/folie-06.png" alt="">
+        <div>
+          <div class="label">Folie 6 · Gelbe Folie</div>
+          <p class="core">In 5 Sekunden Vertrauen, in 2 Klicks Hilfe.</p>
+          <ul><li>Mobile first, mit einer Hand bedienbar</li><li>Situation vor Struktur: Anliegen statt Menü</li><li>Ruhig und warm: wer nachts kommt, braucht Ruhe</li></ul>
+          
+        </div>
+      </div>
+  </section>
+  <section>
+    <div class="sec"><h2>Frage 1: Einstiege</h2><span class="time">4:15–6:45</span></div>
+    
+      <div class="slide">
+        <img src="out/folie-07.png" alt="">
+        <div>
+          <div class="label">Folie 7 · Drei Wege hinein</div>
+          <p class="core">Eltern kommen nicht mit Zielgruppen, sondern mit Stimmungen.</p>
+          <ul><li>Stöbern: Alter wählen (gibt es schon im Menü, ich hole es nach oben)</li><li>Konkretes Problem: Anliegen-Chips und Suche „Was beschäftigt dich gerade?“</li><li>Jetzt jemanden: feste Leiste unten, Hebamme per WhatsApp und Frage stellen, statt Shop</li><li>Heute tippt man ganze Fragen wie bei ChatGPT. Die Suche versteht später Fragen, erfindet aber nichts, sondern führt zu geprüften Inhalten und echten Beraterinnen</li><li>Chips aus euren Daten ableiten, nicht raten</li></ul>
+          
+        </div>
+      </div>
+      <div class="slide">
+        <img src="out/folie-08.png" alt="">
+        <div>
+          <div class="label">Folie 8 · Die Seite passt sich an</div>
+          <p class="core">Ein Tipp, und die Seite passt sich an.</p>
+          <ul><li>Tipp für heute und Artikel genau für dieses Alter</li><li>Jeder Artikel mit dem Gesicht der Fachperson</li><li>Kein Login, kein Formular</li><li>Alter nur auf dem Handy, nur wenn selbst gewählt</li><li>Warum: Personalisierung ohne Datensammlung passt zu einer gGmbH</li></ul>
+          
+        </div>
+      </div>
+  </section>
+  <section>
+    <div class="sec"><h2>Frage 2: SEO und GEO</h2><span class="time">6:45–8:45</span></div>
+    
+      <div class="slide">
+        <img src="out/folie-09.png" alt="">
+        <div>
+          <div class="label">Folie 9 · Lesbar für Mensch und Maschine</div>
+          <p class="core">KI-Tools zitieren, was sie verstehen und dem sie vertrauen.</p>
+          <ul><li>Strukturierte Daten: wellcome, gemeinnützig, seit 2002. Karin Hackbarth, Hebamme</li><li>alternateName „ElternLeben“: beide Namen verknüpft, Rankings bleiben beim Markenwechsel</li><li>Antwort im ersten Satz, z. B. „14 bis 17 Std. Schlaf“</li><li>HTML vom Server, vor allem die FAQ</li><li>Crawler-Policy bewusst in robots.txt: Suche ja, Training eure Entscheidung</li><li>Messen: Search Console und jeden Monat 10 Elternfragen an ChatGPT, Perplexity, Gemini</li></ul>
+          <p class="hint">Falls gefragt: Google zeigt FAQ-Snippets kaum noch, das Markup lohnt sich trotzdem für KI. llms.txt ist kein offizieller Standard.</p>
+        </div>
+      </div>
+  </section>
+  <section>
+    <div class="sec"><h2>Frage 3: Marke und Vertrauen</h2><span class="time">8:45–10:15</span></div>
+    
+      <div class="slide">
+        <img src="out/folie-10.png" alt="">
+        <div>
+          <div class="label">Folie 10 · Die Brücke</div>
+          <p class="core">Der Markenwechsel als Brücke, nicht als Bruch.</p>
+          <ul><li>Vertrauen = Wer steht dahinter? Wer hilft konkret? Wem hat es geholfen?</li><li>Direkt unter dem Einstieg: seit 2002, ~220 Standorte, kostenlos und gemeinnützig</li><li>Echte Gesichter statt Stockfotos, Zitate mit Kontext („Mutter von Zwillingen, 4 Monate“)</li><li>Logo heißt schon „wellcome für dein ElternLeben“: ElternLeben, dann „ist jetzt wellcome“, dann wellcome</li><li>Blau für Vertrauen, warme helle Flächen, Gelb nur fürs Wichtigste</li></ul>
+          <p class="hint">Zahlen sind von 2023: „Die würde ich mit euch aktualisieren.“</p>
+        </div>
+      </div>
+  </section>
+  <section>
+    <div class="sec"><h2>Frage 4: Die App</h2><span class="time">10:15–12:15</span></div>
+    
+      <div class="slide">
+        <img src="out/folie-11.png" alt="">
+        <div>
+          <div class="label">Folie 11 · Jede Funktion hat ein Vorbild</div>
+          <p class="core">Die App ist kein Fremdkörper, sondern die nächste Stufe.</p>
+          <ul><li>Navigation nach Elternphase → Beratung nach Alter</li><li>Newsletter → tägliche Tipps</li><li>Webinare und Berichte → Community</li><li>Angebote vor Ort → lokal</li><li>Harmonisch heißt: „mehr von dem, was ich gerade gut fand“</li></ul>
+          
+        </div>
+      </div>
+      <div class="slide">
+        <img src="out/folie-12.png" alt="">
+        <div>
+          <div class="label">Folie 12 · Im richtigen Moment</div>
+          <p class="core">Conversion entsteht im richtigen Moment, nicht beim ersten Besuch.</p>
+          <ul><li>Kein Pop-up. Mobil ein dezentes Banner, Desktop ein QR-Code</li><li>Angebot am Artikelende, passend zum Thema. Newsletter als Alternative</li><li>Wichtigster Punkt: kein zweites Onboarding. Alter und Thema gehen per Deep Link mit</li><li>Messen: Klick, Installation, aktiv nach 7 Tagen</li></ul>
+          <p class="hint">Es gibt schon eine ElternLeben-App für Kurse. Fragen, ob die neue sie ersetzt.</p>
+        </div>
+      </div>
+  </section>
+  <section>
+    <div class="sec"><h2>Tech-Entscheidung</h2><span class="time">12:15–13:45</span></div>
+    
+      <div class="slide">
+        <img src="out/folie-13.png" alt="">
+        <div>
+          <div class="label">Folie 13 · Neues Frontend, bewährtes CMS</div>
+          <p class="core">Neues Frontend mit Next.js, TYPO3 bleibt.</p>
+          <ul><li>Kein Big Bang: TYPO3 liefert Inhalte als Daten, alte und neue Seiten laufen parallel</li><li>Start mit der Startseite, dann Schritt für Schritt</li><li>Ein Team für Web (Next.js) und App (React Native): weniger Kosten</li><li>Volle Kontrolle über HTML, Daten und Ladezeit</li><li>Ehrlich: keine TYPO3-Erfahrung. Genau deshalb dieser Weg</li></ul>
+          
+        </div>
+      </div>
+  </section>
+  <section>
+    <div class="sec"><h2>Abschluss</h2><span class="time">13:45–15:00</span></div>
+    
+      <div class="slide">
+        <img src="out/folie-14.png" alt="">
+        <div>
+          <div class="label">Folie 14 · Erst zuhören, dann bauen</div>
+          <p class="core">Ich fange mit zwei Wochen Zuhören an, nicht mit Code.</p>
+          <ul><li>Analytics, Suchanfragen, Beratungsthemen, 5 Gespräche mit Eltern</li><li>Neue Startseite in ca. 6–8 Wochen</li><li>Dann Personalisierung, mit dem App-Launch die Umstellung</li><li>Erfolg: höchstens 2 Klicks, Nennungen in KI-Antworten, aktiv nach 7 Tagen</li></ul>
+          
+        </div>
+      </div>
+      <div class="slide">
+        <img src="out/folie-15.png" alt="">
+        <div>
+          <div class="label">Folie 15 · Fragen an euch</div>
+          <p class="core">Mit euren Daten sähe einiges anders aus.</p>
+          <ul><li>Welche 3 Anliegen kommen in der Beratung am häufigsten?</li><li>Wann kommt die Umbenennung, bleibt elternleben.de?</li><li>Wo seht ihr meine Rolle: Website, App oder beides?</li><li>Danke.</li></ul>
+          
+        </div>
+      </div>
+  </section>
+  <div class="extra">
+    <h2>Mögliche Rückfragen</h2>
+    <div class="qa"><b>Keine TYPO3-Erfahrung?</b><span>Stimmt. Deshalb headless: Redaktion bleibt, ich arbeite im Frontend, die Schnittstelle arbeite ich mir ein.</span></div><div class="qa"><b>Warum nicht in TYPO3 neu gestalten?</b><span>Geht, aber dann Web und App getrennt. Mit React teilen beide Design-System und Code.</span></div><div class="qa"><b>Datenschutz bei Personalisierung?</b><span>Kein Login, Alter nur auf Wunsch auf dem Gerät, kein Tracking. Details mit eurer Datenschutzberatung.</span></div><div class="qa"><b>Warum keine PWA?</b><span>Zuverlässige Push-Nachrichten und Platz im App Store. Mit Expo bleibt der Aufwand klein.</span></div><div class="qa"><b>KI-Suche mit falschen Tipps?</b><span>Erzeugt keine eigenen Antworten, findet nur geprüfte Artikel und verweist auf echte Beraterinnen.</span></div><div class="qa"><b>Warum Blau, wir mögen Grün?</b><span>Blau ist eure neue Marke und steht für Vertrauen. Grün kann in der Übergangszeit als Akzent bleiben.</span></div><div class="qa"><b>Verlieren wir Rankings?</b><span>Nicht, wenn Domain und URLs bleiben. Beide Namen in den Daten verknüpfen, schrittweise, Search Console beobachten.</span></div><div class="qa"><b>Kosten, Dauer?</b><span>Seriös nach den 2 Wochen Analyse. Grob 6–8 Wochen für die Startseite.</span></div>
+    <div class="tips"><h2 style="font-size:13pt;margin-bottom:2mm">Drei Tipps für den Vortrag</h2><ul><li>Bei jeder Entscheidung das Warum sagen. Genau danach haben sie gefragt.</li><li>Zeitdruck? Folie 9 (SEO) und 13 (Tech) kürzen, die Details kommen in der Diskussion.</li><li>Die 403-Sache als Frage stellen, nicht als Fehler.</li></ul></div>
+  </div>
+</body></html>
